@@ -1,0 +1,391 @@
+React Lab Exercise 3: State in React 
+Topic: State using useState() 
+1. Aim 
+To create a simple React application that demonstrates the use of State using the useState() Hook. 
+ 
+2. Objectives 
+After completing this experiment, students will be able to: 
+• Understand the concept of State in React. 
+• Create state using useState(). 
+• Update state using a state setter function. 
+• Handle button click events. 
+• Understand how changing state updates the UI. 
+ 
+3. What is State? 
+State is data that can change during the execution of a React application. 
+Examples 
+Counter value 
+Student name 
+Selected option 
+Login status 
+Button status 
+Form data 
+Simple idea 
+State 
+  ↓ 
+Value changes 
+  ↓ 
+React detects the change 
+  ↓ 
+Component re-renders 
+  ↓ 
+Updated UI 
+ 
+4. Example: Counter Application 
+We will create: 
+       Student Counter 
+    ┌───────────────────┐ 
+    │                   │ 
+    │    Count: 0       │ 
+
+    │                   │ 
+    │  [ - ]   [ + ]    │ 
+    │                   │ 
+    └───────────────────┘ 
+When the user clicks +: 
+0 → 1 → 2 → 3 → ... 
+When the user clicks −: 
+3 → 2 → 1 → 0 
+ 
+5. Step 1: Create a React Project 
+Open VS Code. 
+Select: 
+Terminal → New Terminal 
+Run: 
+npm create vite@latest state-demo 
+Select: 
+Framework: React 
+Variant: JavaScript 
+Then execute: 
+cd state-demo 
+npm install 
+npm run dev 
+Open the localhost URL displayed in the terminal. 
+ 
+6. Step 2: Open App.jsx 
+Inside the src folder, open: 
+src/App.jsx 
+Delete the existing code. 
+ 
+7. Step 3: Import useState 
+At the top of App.jsx, write: 
+import { useState } from "react"; 
+Why? 
+useState is a React Hook that allows a functional component to store and update state. 
+
+ 
+8. Step 4: Create State 
+Inside the App() function: 
+const [count, setCount] = useState(0); 
+This line has three important parts: 
+const [count, setCount] = useState(0); 
+        │       │              │ 
+        │       │              └── Initial value 
+        │       └── Function to update state 
+        └── State variable 
+Meaning 
+Part 
+Meaning 
+count 
+Current state value 
+setCount 
+Function used to change the state 
+0 
+Initial value 
+Initially: 
+count = 0 
+ 
+9. Step 5: Display the State 
+Write: 
+<h2>Count: {count}</h2> 
+The {count} displays the current state value. 
+If: 
+count = 0 
+the browser displays: 
+Count: 0 
+10. Step 6: Add an Increase Button 
+Add: 
+<button onClick={() => setCount(count + 1)}> 
+  Increase 
+</button> 
+When the button is clicked: 
+count + 1 
+The state changes. 
+Example: 
+
+0 → 1 
+1 → 2 
+2 → 3 
+ 
+11. Step 7: Add a Decrease Button 
+Add: 
+<button onClick={() => setCount(count - 1)}> 
+  Decrease 
+</button> 
+Now: 
+3 → 2 
+2 → 1 
+1 → 0 
+ 
+12. Step 8: Complete App.jsx 
+Your complete program is: 
+import { useState } from "react"; 
+ 
+function App() { 
+ 
+  const [count, setCount] = useState(0); 
+ 
+  return ( 
+    <div> 
+      <h1>React State Example</h1> 
+ 
+      <h2>Count: {count}</h2> 
+ 
+      <button onClick={() => setCount(count + 1)}> 
+        Increase 
+      </button> 
+ 
+      <button onClick={() => setCount(count - 1)}> 
+        Decrease 
+      </button> 
+    </div> 
+  ); 
+} 
+ 
+export default App; 
+ 
+13. Step 9: Run the Application 
+Save the file. 
+The browser should display: 
+React State Example 
+ 
+
+Count: 0 
+ 
+[ Increase ] [ Decrease ] 
+Click Increase. 
+Count: 1 
+Click again: 
+Count: 2 
+Click Decrease: 
+Count: 1 
+ 
+14. How Does State Work? 
+Suppose the initial state is: 
+useState(0) 
+Initial 
+count = 0 
+User clicks Increase: 
+setCount(count + 1) 
+React changes the state: 
+count = 1 
+React then re-renders the component. 
+Button Click 
+     ↓ 
+setCount() 
+     ↓ 
+State changes 
+     ↓ 
+React re-renders 
+     ↓ 
+Updated value displayed 
+ 
+15. Important Concept 
+Do NOT do this: 
+count = count + 1; 
+Instead, use: 
+setCount(count + 1); 
+
+The setter function tells React that the state needs to be updated. 
+ 
+16. Step 10: Add Simple CSS 
+Open: 
+src/index.css 
+Add: 
+body { 
+  font-family: Arial, sans-serif; 
+  text-align: center; 
+  margin-top: 50px; 
+} 
+ 
+button { 
+  padding: 10px 20px; 
+  margin: 5px; 
+  font-size: 16px; 
+  cursor: pointer; 
+} 
+17. Step 11: Student Name Example 
+Now let's create another state. 
+Add: 
+const [name, setName] = useState("Rahul"); 
+Display: 
+<h2>Student Name: {name}</h2> 
+Add a button: 
+<button onClick={() => setName("Priya")}> 
+  Change Name 
+</button> 
+Now clicking the button changes: 
+Student Name: Rahul 
+to: 
+Student Name: Priya 
+ 
+18. Complete Example with Two States 
+import { useState } from "react"; 
+ 
+function App() { 
+ 
+  const [count, setCount] = useState(0); 
+  const [name, setName] = useState("Rahul"); 
+
+ 
+  return ( 
+    <div> 
+ 
+      <h1>React State Example</h1> 
+ 
+      <h2>Student Name: {name}</h2> 
+ 
+      <button onClick={() => setName("Priya")}> 
+        Change Name 
+      </button> 
+ 
+      <hr /> 
+ 
+      <h2>Count: {count}</h2> 
+ 
+      <button onClick={() => setCount(count + 1)}> 
+        Increase 
+      </button> 
+ 
+      <button onClick={() => setCount(count - 1)}> 
+        Decrease 
+      </button> 
+ 
+    </div> 
+  ); 
+} 
+ 
+export default App; 
+ 
+19. Understand Multiple States 
+Our component now has: 
+App 
+ │ 
+ ├── name 
+ │ 
+ └── count 
+They are independent. 
+name  → "Rahul" → "Priya" 
+ 
+count → 0 → 1 → 2 → 3 
+Changing count does not change name. 
+ 
+20. Student Activity 
+Activity 1: Reset Counter 
+Add: 
+<button onClick={() => setCount(0)}> 
+  Reset 
+</button> 
+
+Expected: 
+Count: 5 
+ 
+[Reset] 
+ 
+Count: 0 
+ 
+Activity 2: Student Department 
+Create: 
+const [department, setDepartment] = useState("CSE"); 
+Display: 
+<h2>Department: {department}</h2> 
+Create a button to change it to ECE. 
+ 
+Activity 3: Like Button 
+Create: 
+const [likes, setLikes] = useState(0); 
+Add: 
+<button onClick={() => setLikes(likes + 1)}> 
+  👍 Like 
+</button> 
+Expected: 
+  Like: 0 
+ 
+Click 
+ 
+ Like: 1 
+ 
+21. Mini Exercise: Student Attendance 
+Create a state: 
+const [attendance, setAttendance] = useState(0); 
+Create three buttons: 
+Present 
+Absent 
+Reset 
+Expected output: 
+Student Attendance 
+
+ 
+Present: 5 
+ 
+[ Present ] [ Absent ] [ Reset ] 
+Students should decide how the buttons modify the state. 
+ 
+22. Common Beginner Mistakes 
+Mistake 1 
+const count = 0; 
+This is just a normal JavaScript variable, not React state. 
+Use: 
+const [count, setCount] = useState(0); 
+Mistake 2 
+count++; 
+Do not directly modify React state. 
+Use: 
+setCount(count + 1); 
+Mistake 3 
+Forgetting to import: 
+import { useState } from "react"; 
+ 
+23. Viva Questions 
+1. What is State? 
+State is data that can change during the execution of a React component. 
+2. Which Hook is used to create state? 
+useState(). 
+3. What is the initial value in useState(0)? 
+0. 
+4. What is setCount? 
+It is the state setter function used to update count. 
+5. Can we directly modify state? 
+No. We should use the setter function. 
+6. What happens when state changes? 
+React re-renders the component and updates the UI. 
+
+7. Can a component have multiple state variables? 
+Yes. 
+ 
+24. Final Learning Diagram 
+             useState() 
+                 │ 
+                 ↓ 
+          Create State 
+                 │ 
+                 ↓ 
+          User Action 
+                 │ 
+                 ↓ 
+        setState() function 
+                 │ 
+                 ↓ 
+          State Changes 
+                 │ 
+                 ↓ 
+        React Re-renders 
+                 │ 
+                 ↓ 
+          Updated UI 
+⭐ Remember 
+State = Changing data inside a React component 
+useState() = Create state 
+Setter function = Update state 
+State change → React re-renders → UI updates 
+ 
