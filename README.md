@@ -1,69 +1,34 @@
 # React Lab Exercise 3: State in React
+## Name: LOGESH S
+## Roll no: 2305001014
+## Department: CSE
 
-## Exercise Number
-Exercise 3
+## AIM
+### To create a simple React application that demonstrates the use of State using the useState() Hook. 
 
-## Subject
-AI1067 - Modern Web Application Development (React JS Lab)
+## PROGRAM
+### App.jsx 
+```py
+import { useState } from "react"; function App() { const [name, setName] = useState("Aravindan T"); const [newName, setNewName] = useState(""); 
+return ( 
+<div> 
+<h1>Student Name Example</h1> 
+<h2>Student Name: {name}</h2> 
+<input type="text" placeholder="Enter new name" value={newName} 
+onChange={(e) => setNewName(e.target.value)} 
+/> 
+<button onClick={() => setName(newName)}> 
+Change Name 
+</button> 
+</div> 
+);
+}
+export default App;
 
-## Student Details
-- **Name:** LOGESH S
-- **Roll No:** 2305001014
-- **Department:** B.Tech CSE
-- **College:** IST, NMV University
-
-## Objective
-To create a simple React application that demonstrates the use of State using the useState() Hook.
-
-## Description
-React Lab Exercise 3: State in React 
-Topic: State using useState() 
-1. Aim 
-To create a simple React application that demonstrates the use of State using the useState() Hook. 
- 
-2. Objectives 
-After completing this experiment, students will be able to: 
-• Understand the concept of State in React. 
-• Create state using useState(). 
-• Update state using a state setter function. 
-• Handle button click events. 
-• Understand how changing state updates the UI. 
- 
-3. What is State? 
-State is data that can change during the execution of a React application. 
-Examples 
-Counter value 
-Student name 
-Selected option 
-Login status 
-Button status 
-Form data 
-Simple idea 
-State 
-  ↓ 
-Value changes 
-  ↓ 
-React detects the change 
-  ↓ 
-Component re-renders 
-  ↓ 
-Updated UI 
- 
-4. Example: Counter Applicati
-
-## Technologies Used
-- React JS
-- Vite
-- JavaScript (JSX)
-- HTML5 / CSS3
-
-## How to Run
-```bash
-npm create vite@latest my-app -- --template react
-cd my-app
-npm install
-npm run dev
 ```
+## OUTPUT
+<img width="1125" height="442" alt="image" src="https://github.com/user-attachments/assets/521233d5-10ec-47c8-9d34-a764ea956719" />
+<img width="1125" height="437" alt="image" src="https://github.com/user-attachments/assets/ddde35b7-623b-4be5-9284-dfd2c99bff5d" />
 
-## Exercise Content
-See `exercise.txt` for complete exercise content and source code.
+## RESULT
+### The React application was successfully created using Props to pass employee information from the parent component to the child component. Three employee details were displayed successfully using Props and Props Destructuring.
